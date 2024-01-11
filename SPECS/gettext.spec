@@ -4,7 +4,7 @@
 Summary: GNU libraries and utilities for producing multi-lingual messages
 Name: gettext
 Version: 0.21
-Release: 7%{?dist}
+Release: 8%{?dist}
 # The following are licensed under LGPLv2+:
 # - libintl and its headers
 # - libasprintf and its headers
@@ -31,6 +31,7 @@ Source3: msghack.1
 Patch1: gettext-0.21-gnulib-perror-tests.patch
 Patch2: gettext-0.21-disable-libtextstyle.patch
 Patch3: gettext-0.21-covscan.patch
+Patch4: gettext-java17-2062407.patch
 
 # for bootstrapping
 # BuildRequires: autoconf >= 2.62
@@ -371,6 +372,9 @@ make check LIBUNISTRING=-lunistring
 %{_mandir}/man1/msghack.1*
 
 %changelog
+* Thu Mar 30 2023 Jens Petersen <petersen@redhat.com> - 0.21-8
+- add Java 17 support patch from Mamoru Tasaka (rhbz#2182696)
+
 * Mon Aug 09 2021 Mohan Boddu <mboddu@redhat.com> - 0.21-7
 - Rebuilt for IMA sigs, glibc 2.34, aarch64 flags
   Related: rhbz#1991688
